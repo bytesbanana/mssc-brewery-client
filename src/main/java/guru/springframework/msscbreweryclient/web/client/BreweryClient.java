@@ -1,6 +1,7 @@
 package guru.springframework.msscbreweryclient.web.client;
 
 import guru.springframework.msscbreweryclient.web.model.BeerDto;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Component;
@@ -13,9 +14,10 @@ import java.util.UUID;
 @ConfigurationProperties(prefix = "sfg.brewery", ignoreInvalidFields = false)
 public class BreweryClient {
 
-    public final String BEER_PATH_V1 = "/api/v1/beer";
+    private final String BEER_PATH_V1 = "/api/v1/beer";
+
     private String apiHost;
-    public final RestTemplate restTemplate;
+    private final RestTemplate restTemplate;
 
     public BreweryClient(RestTemplateBuilder restTemplateBuilder) {
         this.restTemplate = restTemplateBuilder.build();
