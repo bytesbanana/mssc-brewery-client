@@ -22,7 +22,7 @@ public class BreweryClient {
     }
 
     public BeerDto getBeerById(UUID id) {
-        String url = String.format("%s%s%s", apiHost, BEER_PATH_V1, id.toString());
+        String url = String.format("%s%s/%s", apiHost, BEER_PATH_V1, id.toString());
         System.out.println(url);
         return restTemplate.getForObject(url, BeerDto.class);
     }
